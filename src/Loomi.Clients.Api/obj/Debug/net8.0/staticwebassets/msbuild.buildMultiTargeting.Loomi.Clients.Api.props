@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\Loomi.Clients.Api.props" />
-</Project>

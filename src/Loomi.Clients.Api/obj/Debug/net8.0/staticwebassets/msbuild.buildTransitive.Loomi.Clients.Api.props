@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\Loomi.Clients.Api.props" />
-</Project>
