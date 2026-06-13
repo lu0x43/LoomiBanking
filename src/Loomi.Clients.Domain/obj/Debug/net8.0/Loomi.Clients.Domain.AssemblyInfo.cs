@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Loomi.Clients.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f965dada5ceda3294db212b71d3759e799945cff")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0d38e0e73c7b09d0a03d596f1e4437e9ef4712f1")]
 [assembly: System.Reflection.AssemblyProductAttribute("Loomi.Clients.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Loomi.Clients.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

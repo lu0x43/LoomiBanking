@@ -16,3 +16,5 @@ C:\github-lu0x43\LoomiBanking\src\Loomi.Clients.Infrastructure\obj\Debug\net8.0\
 C:\github-lu0x43\LoomiBanking\src\Loomi.Clients.Infrastructure\obj\Debug\net8.0\refint\Loomi.Clients.Infrastructure.dll
 C:\github-lu0x43\LoomiBanking\src\Loomi.Clients.Infrastructure\obj\Debug\net8.0\Loomi.Clients.Infrastructure.pdb
 C:\github-lu0x43\LoomiBanking\src\Loomi.Clients.Infrastructure\obj\Debug\net8.0\ref\Loomi.Clients.Infrastructure.dll
+C:\github-lu0x43\LoomiBanking\src\Loomi.Clients.Infrastructure\bin\Debug\net8.0\Loomi.Clients.Infrastructure.runtimeconfig.json
+C:\github-lu0x43\LoomiBanking\src\Loomi.Clients.Infrastructure\obj\Debug\net8.0\Loomi.Clients.Infrastructure.genruntimeconfig.cache
