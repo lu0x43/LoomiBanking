@@ -1,0 +1,12 @@
+C:\github-lu0x43\LoomiBanking\src\Loomi.Clients.Domain\bin\Debug\net8.0\Loomi.Clients.Domain.deps.json
+C:\github-lu0x43\LoomiBanking\src\Loomi.Clients.Domain\bin\Debug\net8.0\Loomi.Clients.Domain.dll
+C:\github-lu0x43\LoomiBanking\src\Loomi.Clients.Domain\bin\Debug\net8.0\Loomi.Clients.Domain.pdb
+C:\github-lu0x43\LoomiBanking\src\Loomi.Clients.Domain\obj\Debug\net8.0\Loomi.Clients.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\github-lu0x43\LoomiBanking\src\Loomi.Clients.Domain\obj\Debug\net8.0\Loomi.Clients.Domain.AssemblyInfoInputs.cache
+C:\github-lu0x43\LoomiBanking\src\Loomi.Clients.Domain\obj\Debug\net8.0\Loomi.Clients.Domain.AssemblyInfo.cs
+C:\github-lu0x43\LoomiBanking\src\Loomi.Clients.Domain\obj\Debug\net8.0\Loomi.Clients.Domain.csproj.CoreCompileInputs.cache
+C:\github-lu0x43\LoomiBanking\src\Loomi.Clients.Domain\obj\Debug\net8.0\Loomi.Clients.Domain.sourcelink.json
+C:\github-lu0x43\LoomiBanking\src\Loomi.Clients.Domain\obj\Debug\net8.0\Loomi.Clients.Domain.dll
+C:\github-lu0x43\LoomiBanking\src\Loomi.Clients.Domain\obj\Debug\net8.0\refint\Loomi.Clients.Domain.dll
+C:\github-lu0x43\LoomiBanking\src\Loomi.Clients.Domain\obj\Debug\net8.0\Loomi.Clients.Domain.pdb
+C:\github-lu0x43\LoomiBanking\src\Loomi.Clients.Domain\obj\Debug\net8.0\ref\Loomi.Clients.Domain.dll

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "UZ3ooq1TtJxwqQNmI2L/gCI6Ql5NgoeuMj56AEzQAJE=",
+  "Source": "Loomi.Clients.Api",
+  "BasePath": "_content/Loomi.Clients.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
