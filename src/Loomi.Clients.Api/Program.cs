@@ -1,3 +1,4 @@
+using Loomi.Clients.Application.Interfaces;
 using Loomi.Clients.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +10,10 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<ClientsDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddMemoryCache();
+builder.Services.AddScoped<IStorageService, Loomi.Clients.Infrastructure.Storage.LocalMockStorageService>();
+builder.Services.AddScoped<IClientRepository, Loomi.Clients.Infrastructure.Repositories.ClientRepository>();
 
 var app = builder.Build();
 
