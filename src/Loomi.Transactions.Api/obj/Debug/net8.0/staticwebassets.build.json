@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "pu87wDFDncJXdbzIdo5UmlV2XI4pKIp7F0lju0wt2+g=",
+  "Source": "Loomi.Transactions.Api",
+  "BasePath": "_content/Loomi.Transactions.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
