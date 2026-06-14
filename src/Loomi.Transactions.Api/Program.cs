@@ -16,18 +16,23 @@ builder.Services.AddDbContext<TransactionsDbContext>(options =>
 
 var retryPolicy = HttpPolicyExtensions
     .HandleTransientHttpError()
+    .Or<Polly.Timeout.TimeoutRejectedException>()
     .WaitAndRetryAsync(3, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)));
 
 var circuitBreakerPolicy = HttpPolicyExtensions
     .HandleTransientHttpError()
+    .Or<Polly.Timeout.TimeoutRejectedException>()
     .CircuitBreakerAsync(5, TimeSpan.FromSeconds(30));
 
+var timeoutPolicy = Policy.TimeoutAsync<HttpResponseMessage>(TimeSpan.FromSeconds(3));
+
 builder.Services.AddHttpClient<IClientApiService, ClientApiService>(client =>
-    {
-        client.BaseAddress = new Uri("https://localhost:7001"); 
-    })
-    .AddPolicyHandler(retryPolicy)
-    .AddPolicyHandler(circuitBreakerPolicy);
+{
+    client.BaseAddress = new Uri("https://localhost:7001");
+})
+.AddPolicyHandler(retryPolicy)
+.AddPolicyHandler(circuitBreakerPolicy)
+.AddPolicyHandler(timeoutPolicy);
 
 var app = builder.Build();
 
