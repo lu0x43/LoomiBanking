@@ -1,3 +1,4 @@
+using Loomi.Transactions.Application.DTOs;
 using Loomi.Transactions.Application.Interfaces;
 using Loomi.Transactions.Domain.Entities;
 using Loomi.Transactions.Infrastructure.Data;
@@ -35,5 +36,3 @@ public class TransactionsController : ControllerBase
         return Ok(new { transaction.Id, Status = "Completed" });
     }
 }
-
-public record CreateTransactionRequest(Guid FromClientId, Guid ToClientId, decimal Amount);

@@ -1,3 +1,6 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using Loomi.Transactions.Application.Validators;
 using Loomi.Transactions.Application.Interfaces;
 using Loomi.Transactions.Infrastructure.Data;
 using Loomi.Transactions.Infrastructure.Services;
@@ -7,6 +10,9 @@ using Polly;
 using Polly.Extensions.Http;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateTransactionRequestValidator>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
