@@ -3,9 +3,11 @@ using Loomi.Transactions.Application.Interfaces;
 using Loomi.Transactions.Domain.Entities;
 using Loomi.Transactions.Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Loomi.Transactions.Api.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/v1/[controller]")]
 public class TransactionsController : ControllerBase
