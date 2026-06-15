@@ -4,9 +4,11 @@ using Loomi.Clients.Application.DTOs;
 using Loomi.Clients.Application.Interfaces;
 using Loomi.Clients.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Loomi.Clients.Api.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/v1/[controller]")]
 public class ClientsController : ControllerBase
