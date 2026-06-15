@@ -1,5 +1,7 @@
+using Loomi.Clients.Api.Consumers;
 using Loomi.Clients.Application.Interfaces;
 using Loomi.Clients.Infrastructure.Data;
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +16,22 @@ builder.Services.AddDbContext<ClientsDbContext>(options =>
 builder.Services.AddMemoryCache();
 builder.Services.AddScoped<IStorageService, Loomi.Clients.Infrastructure.Storage.LocalMockStorageService>();
 builder.Services.AddScoped<IClientRepository, Loomi.Clients.Infrastructure.Repositories.ClientRepository>();
+
+builder.Services.AddMassTransit(x =>
+{
+    x.AddConsumer<TransferCompletedConsumer>();
+
+    x.UsingRabbitMq((context, cfg) =>
+    {
+        var rabbitMqConfig = builder.Configuration.GetSection("RabbitMq");
+        cfg.Host(rabbitMqConfig["Host"] ?? "localhost", "/", h =>
+        {
+            h.Username(rabbitMqConfig["Username"] ?? "guest");
+            h.Password(rabbitMqConfig["Password"] ?? "guest");
+        });
+        cfg.ConfigureEndpoints(context);
+    });
+});
 
 var app = builder.Build();
 

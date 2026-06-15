@@ -1,6 +1,7 @@
 using Loomi.Transactions.Application.Interfaces;
 using Loomi.Transactions.Infrastructure.Data;
 using Loomi.Transactions.Infrastructure.Services;
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Polly;
 using Polly.Extensions.Http;
@@ -33,6 +34,20 @@ builder.Services.AddHttpClient<IClientApiService, ClientApiService>(client =>
 .AddPolicyHandler(retryPolicy)
 .AddPolicyHandler(circuitBreakerPolicy)
 .AddPolicyHandler(timeoutPolicy);
+
+builder.Services.AddMassTransit(x =>
+{
+    x.UsingRabbitMq((context, cfg) =>
+    {
+        var rabbitMqConfig = builder.Configuration.GetSection("RabbitMq");
+        cfg.Host(rabbitMqConfig["Host"] ?? "localhost", "/", h =>
+        {
+            h.Username(rabbitMqConfig["Username"] ?? "guest");
+            h.Password(rabbitMqConfig["Password"] ?? "guest");
+        });
+        cfg.ConfigureEndpoints(context);
+    });
+});
 
 var app = builder.Build();
 
