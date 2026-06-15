@@ -3,26 +3,38 @@
 services:
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: loomi_sqlserver
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=LoomiStr0ngPassw0rd!
+      - MSSQL_SA_PASSWORD=Loomi_StrongPass123!
     ports:
       - "1433:1433"
-  
+    volumes:
+      - sqlvolume:/var/opt/mssql
+
   redis:
     image: redis:alpine
+    container_name: loomi_redis
     ports:
       - "6379:6379"
 
   rabbitmq:
     image: rabbitmq:3-management-alpine
+    container_name: loomi_rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
     ports:
       - "5672:5672"
       - "15672:15672"
 
   azurite:
     image: mcr.microsoft.com/azure-storage/azurite
+    container_name: loomi_azurite
     ports:
       - "10000:10000"
       - "10001:10001"
       - "10002:10002"
+
+volumes:
+  sqlvolume:
