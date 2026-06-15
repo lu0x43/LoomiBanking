@@ -1,3 +1,6 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using Loomi.Clients.Application.Validators;
 using Loomi.Clients.Api.Consumers;
 using Loomi.Clients.Application.Interfaces;
 using Loomi.Clients.Infrastructure.Data;
@@ -5,6 +8,9 @@ using MassTransit;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateClientRequestValidator>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
