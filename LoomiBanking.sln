@@ -21,6 +21,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loomi.Transactions.Domain",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loomi.Transactions.Infrastructure", "src\Loomi.Transactions.Infrastructure\Loomi.Transactions.Infrastructure.csproj", "{1E3CF8D3-B897-410A-8B57-547909B7AA03}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{6F050D3C-EAFF-49B1-860B-5FED6B576C62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loomi.Clients.UnitTests", "tests\Loomi.Clients.UnitTests\Loomi.Clients.UnitTests.csproj", "{CE004D92-C706-46AD-94E3-9F4E03BA957E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loomi.Transactions.UnitTests", "tests\Loomi.Transactions.UnitTests\Loomi.Transactions.UnitTests.csproj", "{83C48E3E-71D3-4E82-9097-B0D2C1A9C5B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +68,14 @@ Global
 		{1E3CF8D3-B897-410A-8B57-547909B7AA03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E3CF8D3-B897-410A-8B57-547909B7AA03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E3CF8D3-B897-410A-8B57-547909B7AA03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE004D92-C706-46AD-94E3-9F4E03BA957E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE004D92-C706-46AD-94E3-9F4E03BA957E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE004D92-C706-46AD-94E3-9F4E03BA957E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE004D92-C706-46AD-94E3-9F4E03BA957E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83C48E3E-71D3-4E82-9097-B0D2C1A9C5B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83C48E3E-71D3-4E82-9097-B0D2C1A9C5B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83C48E3E-71D3-4E82-9097-B0D2C1A9C5B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83C48E3E-71D3-4E82-9097-B0D2C1A9C5B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{EEB7FF1D-D94F-4559-B112-E66470D177E3} = {D72BEBC4-5FB4-428A-A127-69E8910C2458}
@@ -72,5 +86,7 @@ Global
 		{CC620EE4-19E4-4BC7-92B9-F0E11022144F} = {D72BEBC4-5FB4-428A-A127-69E8910C2458}
 		{50806BC0-8AFB-4D43-817B-E26F53498471} = {D72BEBC4-5FB4-428A-A127-69E8910C2458}
 		{1E3CF8D3-B897-410A-8B57-547909B7AA03} = {D72BEBC4-5FB4-428A-A127-69E8910C2458}
+		{CE004D92-C706-46AD-94E3-9F4E03BA957E} = {6F050D3C-EAFF-49B1-860B-5FED6B576C62}
+		{83C48E3E-71D3-4E82-9097-B0D2C1A9C5B1} = {6F050D3C-EAFF-49B1-860B-5FED6B576C62}
 	EndGlobalSection
 EndGlobal
