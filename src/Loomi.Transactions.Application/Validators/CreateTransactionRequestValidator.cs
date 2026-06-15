@@ -3,7 +3,7 @@ using Loomi.Transactions.Application.DTOs;
 
 namespace Loomi.Transactions.Application.Validators;
 
-public class CreateTransactionRequestValidator : AbstractValidator<CreateTransactionRequest> 
+public class CreateTransactionRequestValidator : AbstractValidator<CreateTransactionRequest>
 {
     public CreateTransactionRequestValidator()
     {

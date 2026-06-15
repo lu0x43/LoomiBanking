@@ -1,7 +1,6 @@
 using FluentAssertions;
 using Loomi.Transactions.Application.DTOs;
 using Loomi.Transactions.Application.Validators;
-using Xunit;
 
 namespace Loomi.Transactions.UnitTests.Application.Validators;
 
@@ -47,7 +46,7 @@ public class CreateTransactionRequestValidatorTests
     {
         //Tentativa de transferir R$ 0,00
         var request = new CreateTransactionRequest(Guid.NewGuid(), Guid.NewGuid(), 0m);
-        
+
         var result = _validator.Validate(request);
 
         //O sistema DEVE barrar e apontar o erro no campo Amount

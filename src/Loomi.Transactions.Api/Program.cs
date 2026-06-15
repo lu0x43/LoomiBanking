@@ -1,17 +1,18 @@
 using System.Text;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
 using FluentValidation;
 using FluentValidation.AspNetCore;
-using Loomi.Transactions.Application.Validators;
 using Loomi.Transactions.Application.Interfaces;
+using Loomi.Transactions.Application.Validators;
 using Loomi.Transactions.Infrastructure.Data;
 using Loomi.Transactions.Infrastructure.Services;
 using MassTransit;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using Polly;
 using Polly.Extensions.Http;
+using Polly.Timeout;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -64,23 +65,23 @@ builder.Services.AddDbContext<TransactionsDbContext>(options =>
 
 var retryPolicy = HttpPolicyExtensions
     .HandleTransientHttpError()
-    .Or<Polly.Timeout.TimeoutRejectedException>()
+    .Or<TimeoutRejectedException>()
     .WaitAndRetryAsync(3, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)));
 
 var circuitBreakerPolicy = HttpPolicyExtensions
     .HandleTransientHttpError()
-    .Or<Polly.Timeout.TimeoutRejectedException>()
+    .Or<TimeoutRejectedException>()
     .CircuitBreakerAsync(5, TimeSpan.FromSeconds(30));
 
 var timeoutPolicy = Policy.TimeoutAsync<HttpResponseMessage>(TimeSpan.FromSeconds(3));
 
 builder.Services.AddHttpClient<IClientApiService, ClientApiService>(client =>
-{
-    client.BaseAddress = new Uri("https://localhost:7001");
-})
-.AddPolicyHandler(retryPolicy)
-.AddPolicyHandler(circuitBreakerPolicy)
-.AddPolicyHandler(timeoutPolicy);
+    {
+        client.BaseAddress = new Uri("https://localhost:7001");
+    })
+    .AddPolicyHandler(retryPolicy)
+    .AddPolicyHandler(circuitBreakerPolicy)
+    .AddPolicyHandler(timeoutPolicy);
 
 builder.Services.AddMassTransit(x =>
 {

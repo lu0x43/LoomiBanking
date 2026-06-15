@@ -6,17 +6,18 @@ using Loomi.Clients.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;
 using Moq;
-using Xunit;
 
 namespace Loomi.Clients.UnitTests.Api.Controllers;
 
 public class ClientsControllerTests
 {
+    private readonly Mock<IDistributedCache> _cacheMock;
+
+    private readonly ClientsController _controller;
+
     // cria os mocks
     private readonly Mock<IClientRepository> _repositoryMock;
-    private readonly Mock<IDistributedCache> _cacheMock;
     private readonly Mock<IStorageService> _storageServiceMock;
-    private readonly ClientsController _controller;
 
     public ClientsControllerTests()
     {

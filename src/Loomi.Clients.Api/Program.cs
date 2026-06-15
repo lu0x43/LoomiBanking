@@ -1,15 +1,17 @@
 using System.Text;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
 using FluentValidation;
 using FluentValidation.AspNetCore;
-using Loomi.Clients.Application.Validators;
 using Loomi.Clients.Api.Consumers;
 using Loomi.Clients.Application.Interfaces;
+using Loomi.Clients.Application.Validators;
 using Loomi.Clients.Infrastructure.Data;
+using Loomi.Clients.Infrastructure.Repositories;
+using Loomi.Clients.Infrastructure.Storage;
 using MassTransit;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -67,8 +69,8 @@ builder.Services.AddStackExchangeRedisCache(options =>
     options.InstanceName = redisConfig["InstanceName"];
 });
 
-builder.Services.AddScoped<IStorageService, Loomi.Clients.Infrastructure.Storage.LocalMockStorageService>();
-builder.Services.AddScoped<IClientRepository, Loomi.Clients.Infrastructure.Repositories.ClientRepository>();
+builder.Services.AddScoped<IStorageService, LocalMockStorageService>();
+builder.Services.AddScoped<IClientRepository, ClientRepository>();
 
 builder.Services.AddMassTransit(x =>
 {

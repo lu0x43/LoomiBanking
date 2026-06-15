@@ -1,10 +1,10 @@
 using System.Text.Json;
-using Microsoft.Extensions.Caching.Distributed;
 using Loomi.Clients.Application.DTOs;
 using Loomi.Clients.Application.Interfaces;
 using Loomi.Clients.Domain.Entities;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
 
 namespace Loomi.Clients.Api.Controllers;
 
@@ -13,8 +13,8 @@ namespace Loomi.Clients.Api.Controllers;
 [Route("api/v1/[controller]")]
 public class ClientsController : ControllerBase
 {
-    private readonly IClientRepository _repository;
     private readonly IDistributedCache _cache;
+    private readonly IClientRepository _repository;
     private readonly IStorageService _storageService;
 
     public ClientsController(IClientRepository repository, IDistributedCache cache, IStorageService storageService)

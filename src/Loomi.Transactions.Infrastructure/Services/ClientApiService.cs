@@ -6,7 +6,10 @@ public class ClientApiService : IClientApiService
 {
     private readonly HttpClient _httpClient;
 
-    public ClientApiService(HttpClient httpClient) => _httpClient = httpClient;
+    public ClientApiService(HttpClient httpClient)
+    {
+        _httpClient = httpClient;
+    }
 
     public async Task<bool> ClientExistsAsync(Guid clientId)
     {

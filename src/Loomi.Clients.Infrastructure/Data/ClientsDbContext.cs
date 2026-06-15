@@ -5,7 +5,9 @@ namespace Loomi.Clients.Infrastructure.Data;
 
 public class ClientsDbContext : DbContext
 {
-    public ClientsDbContext(DbContextOptions<ClientsDbContext> options) : base(options) { }
+    public ClientsDbContext(DbContextOptions<ClientsDbContext> options) : base(options)
+    {
+    }
 
     public DbSet<Client> Clients { get; set; }
 
@@ -17,7 +19,7 @@ public class ClientsDbContext : DbContext
             entity.Property(c => c.FullName).IsRequired().HasMaxLength(150);
             entity.Property(c => c.Document).IsRequired().HasMaxLength(20);
             entity.Property(c => c.Email).IsRequired().HasMaxLength(100);
-            
+
             // Mapeando o Value Object para a mesma tabela
             entity.OwnsOne(c => c.BankingDetails, b =>
             {

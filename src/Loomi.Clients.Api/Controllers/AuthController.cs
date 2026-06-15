@@ -26,9 +26,9 @@ public class AuthController : ControllerBase
         var claims = new[] { new Claim(JwtRegisteredClaimNames.Sub, "teste_loomi_admin") };
 
         var token = new JwtSecurityToken(
-            issuer: _configuration["Jwt:Issuer"],
-            audience: _configuration["Jwt:Audience"],
-            claims: claims,
+            _configuration["Jwt:Issuer"],
+            _configuration["Jwt:Audience"],
+            claims,
             expires: DateTime.Now.AddHours(2),
             signingCredentials: credentials);
 
